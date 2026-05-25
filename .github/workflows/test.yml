@@ -1,0 +1,29 @@
+name: Docker Action Practice
+
+on:
+
+  workflow_dispatch:
+  push:
+    branches:
+        - main
+
+jobs:
+
+  docker-action:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run Docker Action
+
+        uses: ./
+
+        with:
+
+          branch-name: ${{ github.ref_name }}
+
+          actor-name: ${{ github.actor }}

@@ -1,0 +1,25 @@
+name: "Deployment Info Action"
+
+description: "Print deployment information"
+
+inputs:
+
+  branch-name:
+    description: "Branch name"
+    required: true
+
+  actor-name:
+    description: "GitHub user"
+
+    required: true
+
+runs:
+
+  using: docker
+
+  image: Dockerfile
+
+  args:
+    - ${{ inputs.branch-name }}
+
+    - ${{ inputs.actor-name }}
